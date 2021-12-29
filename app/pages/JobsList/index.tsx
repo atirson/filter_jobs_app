@@ -1,6 +1,8 @@
-import api from '@cuteapp/services/api';
 import React, {useEffect, useState} from 'react';
 import {Container, Header, Title} from './styles';
+
+import api from '@cuteapp/services/api';
+import JobCard from '@cuteapp/components/JobCard';
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -21,6 +23,10 @@ const JobList = () => {
       <Header>
         <Title>Job Listing</Title>
       </Header>
+      <JobCard />
+      <JobCard />
+      <JobCard />
+      <JobCard />
     </Container>
   );
 };
