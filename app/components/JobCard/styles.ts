@@ -8,7 +8,7 @@ interface TagsProps {
 
 export const Container = styled.View`
   padding: 8px 15px;
-  height: 130px;
+  height: 180px;
   margin: 5px;
   background-color: ${theme.colors['oxford-blue']};
   border-radius: 10px;
@@ -17,6 +17,7 @@ export const Container = styled.View`
 export const ContainerTags = styled.View`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Tags = styled.Text<TagsProps>`
@@ -36,5 +37,16 @@ export const Title = styled.Text`
 `;
 
 export const Description = styled.Text`
+  color: #fff;
+  flex-shrink: 1;
+`;
+
+export const Footer = styled.View`
+  align-items: flex-end;
+  margin-top: 20px;
+  background-color: red;
+`;
+
+export const DateText = styled.Text`
   color: #fff;
 `;

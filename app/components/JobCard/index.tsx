@@ -1,26 +1,41 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {truncate} from 'lodash';
-import {Container, ContainerTags, Tags, Title, Description} from './styles';
+import {
+  Container,
+  ContainerTags,
+  Tags,
+  Title,
+  Description,
+  DateText,
+} from './styles';
+import {Job} from '@cuteapp/pages/JobsList/IJob';
+import {View} from 'react-native';
+import {formatDistance, parseISO} from 'date-fns';
 
-const JobCard = () => {
+interface JobCard {
+  job: Job;
+}
+
+const JobCard = ({job}: JobCard) => {
   return (
-    <Container>
+    <Container key={job.id}>
       <ContainerTags>
-        <Tags color="#ff0000">Frontend</Tags>
-        <Tags color="#ff0000">Frontend</Tags>
+        <View style={{flexDirection: 'row'}}>
+          {job.labels.slice(0, 3).map(label => (
+            <Tags key={label.id} color={`#${label.color}`}>
+              {label.name}
+            </Tags>
+          ))}
+        </View>
+        <DateText>
+          {formatDistance(parseISO(job.updated_at), new Date(), {
+            addSuffix: true,
+          })}
+        </DateText>
       </ContainerTags>
-      <Title>
-        {truncate('Developer Front-end - ReactJS - Angular', {length: 30})}
-      </Title>
-      <Description>
-        {truncate(
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget
-          `,
-          {
-            length: 150,
-          },
-        )}
-      </Description>
+      <Title>{truncate(job.title, {length: 80})}</Title>
+      <Description>{truncate(job.body, {length: 120})}</Description>
     </Container>
   );
 };
