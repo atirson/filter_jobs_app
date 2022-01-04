@@ -6,6 +6,7 @@ import {Job} from '@cuteapp/pages/JobsList/IJob';
 import {View, Linking} from 'react-native';
 import {formatDistance, parseISO} from 'date-fns';
 import Markdown from 'react-native-showdown';
+import {Link} from 'react-router-native';
 
 interface JobCard {
   job: Job;
@@ -41,7 +42,9 @@ const JobCard = ({job}: JobCard) => {
           })}
         </DateText>
       </ContainerTags>
-      <Title>{truncate(job.title, {length: 80})}</Title>
+      <Link to="/details" state={{job}}>
+        <Title>{truncate(job.title, {length: 80})}</Title>
+      </Link>
       <View style={{flex: 1}}>
         <Markdown
           onShouldStartLoadWithRequest={event => {
