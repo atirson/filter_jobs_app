@@ -2,7 +2,7 @@
 import React from 'react';
 import {truncate} from 'lodash';
 import {Container, ContainerTags, Tags, Title, DateText} from './styles';
-import {Job} from '@cuteapp/pages/JobsList/IJob';
+import {Job} from '@cuteapp/screens/JobsList/IJob';
 import {View, Linking} from 'react-native';
 import {formatDistance, parseISO} from 'date-fns';
 import Markdown from 'react-native-showdown';

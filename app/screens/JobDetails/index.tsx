@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Job} from '@cuteapp/pages/JobsList/IJob';
+import {Job} from '@cuteapp/screens/JobsList/IJob';
 import React from 'react';
 import {View, Linking} from 'react-native';
 import {Container, ContainerTags, Tags, Title} from './styles';

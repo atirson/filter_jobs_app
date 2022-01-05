@@ -1,8 +1,8 @@
 import React from 'react';
 import {NativeRouter, Route, Routes} from 'react-router-native';
 
-import JobList from '@cuteapp/pages/JobsList';
-import JobDetails from '@cuteapp/pages/JobDetails';
+import JobList from '@cuteapp/screens/JobsList';
+import JobDetails from '@cuteapp/screens/JobDetails';
 
 const App = () => {
   return (
